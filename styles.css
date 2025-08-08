@@ -1028,29 +1028,77 @@ html {
 }
 
 /* PDF Project Cards */
-.pdf-project-card {
-    position: relative;
+.pdf-project-container {
+    display: flex;
+    flex-direction: column;
     background: var(--white);
     border-radius: 12px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
     border: 2px solid transparent;
+    height: auto;
 }
 
-.pdf-project-card:hover {
+.pdf-project-container:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
     border-color: var(--accent-color);
 }
 
+.project-card.pdf-project-card {
+    position: relative;
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    border: none;
+    height: auto;
+    margin-bottom: 0;
+}
+
+.project-card.pdf-project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-color);
+}
+
+.project-card.pdf-project-card .project-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.project-card.pdf-project-card .project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(44, 62, 80, 0.95));
+    color: var(--white);
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.project-card.pdf-project-card:hover .project-overlay {
+    transform: translateY(0);
+}
+
 .pdf-project-buttons {
     padding: 1rem;
     background: var(--white);
-    display: flex;
+    display: flex !important;
     justify-content: center;
     gap: 0.5rem;
     flex-wrap: wrap;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    z-index: 10;
+    min-height: 60px;
+    border-top: 2px solid var(--accent-color);
+    margin-top: 0;
 }
 
 .pdf-project-buttons .btn {
@@ -1059,9 +1107,14 @@ html {
     border-radius: 6px;
     transition: all 0.3s ease;
     text-decoration: none;
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     gap: 0.3rem;
+    font-weight: 500;
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: var(--white);
+    border: 1px solid var(--accent-color);
 }
 
 .pdf-project-buttons .btn:hover {
